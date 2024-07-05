@@ -1,0 +1,1 @@
+alter table usuarios change column nome email VARCHAR(100) NOT NULL;
