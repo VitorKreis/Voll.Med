@@ -44,5 +44,5 @@ Para iniciar a aplicação, execute:
 ## Autor
 GitHub: VitorKreis
 
-LinkedIn: VitorKreis
+LinkedIn: [VitorKreis](https://www.linkedin.com/in/vitorkreis/)
 
