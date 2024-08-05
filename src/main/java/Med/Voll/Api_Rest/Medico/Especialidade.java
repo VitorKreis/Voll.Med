@@ -1,12 +1,9 @@
 package Med.Voll.Api_Rest.Medico;
 
 public enum Especialidade {
-
-    CARDIOLOGIA,
-
-    GINICOLOGIA,
-
-    PSIQUIATRIA,
-
-    PEDIATRIA
+        CARDIOLOGIA,
+        DERMATOLOGIA,
+        NEUROLOGIA,
+        ORTOPEDIA,
+        PEDIATRIA
 }

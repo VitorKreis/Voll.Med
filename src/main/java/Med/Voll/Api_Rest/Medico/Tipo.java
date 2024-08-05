@@ -5,6 +5,4 @@ public enum Tipo {
     CLINICO_GERAL,
 
     ESPECIALISTA,
-
-    CIRURGIAO
 }

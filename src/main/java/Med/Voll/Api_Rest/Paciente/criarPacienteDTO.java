@@ -1,8 +1,12 @@
 package Med.Voll.Api_Rest.Paciente;
 
+import Med.Voll.Api_Rest.Endereco.dadosCadastroEnderecoDTO;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+
 
 public record criarPacienteDTO(
         @NotNull(message = "Nome não pode ser vazio")
@@ -21,8 +25,14 @@ public record criarPacienteDTO(
         String cpf,
 
         @NotNull(message = "Nome não pode ser vazio")
-        String comentario
+        String comentario,
 
+        @NotNull(message = "Tipo de atedimento não pode ser vazio")
+        @JsonAlias("atendimento")
+        tipoAtendimento atendimento,
 
+        @NotNull(message = "endereço não pode ser vazio")
+        @Valid
+        dadosCadastroEnderecoDTO endereco
 ) {
 }
