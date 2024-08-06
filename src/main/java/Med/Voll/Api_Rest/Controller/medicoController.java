@@ -3,6 +3,9 @@ package Med.Voll.Api_Rest.Controller;
 import Med.Voll.Api_Rest.Medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +34,9 @@ public class medicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<listarMedicosDTO>> listarMedicos() {
-        var pacientes = repository.findByAtivoTrue().stream().map(listarMedicosDTO::new).toList();
-        return ResponseEntity.ok().body(pacientes);
+    public ResponseEntity<Page<listarMedicosDTO>> listarMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable) {
+        var pacientes = repository.findByAtivoTrue(pageable).map(listarMedicosDTO::new);
+        return ResponseEntity.ok(pacientes);
     }
 
     @GetMapping("/{id}")
