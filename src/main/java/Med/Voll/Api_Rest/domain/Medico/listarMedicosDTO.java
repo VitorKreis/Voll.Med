@@ -1,4 +1,4 @@
-package Med.Voll.Api_Rest.Medico;
+package Med.Voll.Api_Rest.domain.Medico;
 
 
 

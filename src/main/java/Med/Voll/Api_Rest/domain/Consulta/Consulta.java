@@ -1,7 +1,7 @@
-package Med.Voll.Api_Rest.Consulta;
+package Med.Voll.Api_Rest.domain.Consulta;
 
-import Med.Voll.Api_Rest.Medico.Medico;
-import Med.Voll.Api_Rest.Paciente.Paciente;
+import Med.Voll.Api_Rest.domain.Medico.Medico;
+import Med.Voll.Api_Rest.domain.Paciente.Paciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -30,5 +30,5 @@ public class Consulta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    private LocalDateTime date;
+    private LocalDateTime data;
 }

@@ -1,17 +1,13 @@
 package Med.Voll.Api_Rest.Controller;
 
-import Med.Voll.Api_Rest.Consulta.Consulta;
-import Med.Voll.Api_Rest.Consulta.ConsultaRepository;
-import Med.Voll.Api_Rest.Consulta.ConsultaService;
-import Med.Voll.Api_Rest.Consulta.criarConsultaDTO;
-import Med.Voll.Api_Rest.Medico.MedicoRepository;
-import Med.Voll.Api_Rest.Paciente.PacienteRepository;
+
+import Med.Voll.Api_Rest.domain.Consulta.ConsultaRepository;
+import Med.Voll.Api_Rest.domain.Consulta.ConsultaService;
+import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/consultas")
@@ -20,11 +16,23 @@ public class ConsultaControlle {
     @Autowired
     ConsultaService service;
 
+    @Autowired
+    ConsultaRepository repository;
 
     @PostMapping
     @Transactional
-    public void criarConsulta(@RequestBody criarConsultaDTO dados){
+    public ResponseEntity criarConsulta(@RequestBody criarConsultaDTO dados){
         service.agendar(dados);
+
+        return ResponseEntity.ok().build();
     }
+
+    @GetMapping
+    public ResponseEntity listaConsultas(){
+        var consultas = repository.findAll();
+
+        return ResponseEntity.ok(consultas);
+    }
+
 
 }

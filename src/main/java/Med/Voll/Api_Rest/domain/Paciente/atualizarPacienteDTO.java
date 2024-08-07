@@ -1,7 +1,6 @@
-package Med.Voll.Api_Rest.Paciente;
+package Med.Voll.Api_Rest.domain.Paciente;
 
-import Med.Voll.Api_Rest.Endereco.atualizaEnderecoDTO;
-import Med.Voll.Api_Rest.Endereco.dadosCadastroEnderecoDTO;
+import Med.Voll.Api_Rest.domain.Endereco.atualizaEnderecoDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

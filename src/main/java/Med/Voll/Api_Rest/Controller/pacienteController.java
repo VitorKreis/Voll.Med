@@ -1,6 +1,7 @@
 package Med.Voll.Api_Rest.Controller;
 
-import Med.Voll.Api_Rest.Paciente.*;
+
+import Med.Voll.Api_Rest.domain.Paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,8 +10,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/paciente")

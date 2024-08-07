@@ -1,7 +1,7 @@
-package Med.Voll.Api_Rest.Medico;
+package Med.Voll.Api_Rest.domain.Medico;
 
 
-import Med.Voll.Api_Rest.Endereco.Endereco;
+import Med.Voll.Api_Rest.domain.Endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

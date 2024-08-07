@@ -1,6 +1,6 @@
-package Med.Voll.Api_Rest.Paciente;
+package Med.Voll.Api_Rest.domain.Paciente;
 
-import Med.Voll.Api_Rest.Endereco.dadosCadastroEnderecoDTO;
+import Med.Voll.Api_Rest.domain.Endereco.dadosCadastroEnderecoDTO;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;

@@ -1,6 +1,6 @@
-package Med.Voll.Api_Rest.Paciente;
+package Med.Voll.Api_Rest.domain.Paciente;
 
-import Med.Voll.Api_Rest.Endereco.Endereco;
+import Med.Voll.Api_Rest.domain.Endereco.Endereco;
 
 public record ListarPacientes(String nome, String telefone, String email, String cpf, String comentario, tipoAtendimento tipoAtendimento, Endereco endereco) {
 
