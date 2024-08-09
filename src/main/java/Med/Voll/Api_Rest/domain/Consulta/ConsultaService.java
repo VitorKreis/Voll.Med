@@ -1,11 +1,15 @@
 package Med.Voll.Api_Rest.domain.Consulta;
 
 import Med.Voll.Api_Rest.Infra.ValidacaoException;
+import Med.Voll.Api_Rest.domain.Consulta.validadores.ValidadorCancelamentoConsulta;
+import Med.Voll.Api_Rest.domain.Consulta.validadores.ValidadorConsulta;
 import Med.Voll.Api_Rest.domain.Medico.Medico;
 import Med.Voll.Api_Rest.domain.Medico.MedicoRepository;
 import Med.Voll.Api_Rest.domain.Paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ConsultaService {
@@ -20,8 +24,14 @@ public class ConsultaService {
     @Autowired
     ConsultaRepository consultaRepository;
 
-    public void agendar(criarConsultaDTO dados){
 
+    @Autowired
+    List<ValidadorConsulta> validador;
+
+    @Autowired
+    List<ValidadorCancelamentoConsulta> validadorCancelamentoConsultas;
+
+    public void agendar(criarConsultaDTO dados){
 
         if(!pacienteRepository.existsById(dados.id_paciente())){
             throw new ValidacaoException("Id do paciente informado inexistente");
@@ -32,8 +42,11 @@ public class ConsultaService {
         }
 
         var medico = escolherMedico(dados);
+
+        validador.forEach(val -> val.validar(dados));
+
         var paciente = pacienteRepository.getReferenceById(dados.id_paciente());
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
 
 
         consultaRepository.save(consulta);
@@ -52,4 +65,16 @@ public class ConsultaService {
 
     }
 
+    public void cancelar(MotivoCancelamentoDTO motivo) {
+
+        if(!consultaRepository.existsById(motivo.consulta_id())){
+            throw new ValidacaoException("Consulta não encontrada na base de dados!");
+        }
+
+        validadorCancelamentoConsultas.forEach(validadorCancelamentoConsulta -> validadorCancelamentoConsulta.validar(motivo));
+
+        var consulta = consultaRepository.getReferenceById(motivo.consulta_id());
+
+        consulta.cancelar(motivo.motivo());
+    }
 }

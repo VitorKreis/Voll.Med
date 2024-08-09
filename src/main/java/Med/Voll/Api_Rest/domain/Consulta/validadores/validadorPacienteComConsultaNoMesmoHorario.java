@@ -7,15 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class validadorMedicoComConsultaMarcada implements ValidadorConsulta {
+public class validadorPacienteComConsultaNoMesmoHorario implements ValidadorConsulta{
 
     @Autowired
     private ConsultaRepository repository;
 
     public void validar(criarConsultaDTO dados){
-        var medicoComConsultaNoMesmoHorario = repository.existsByMedicoIdAndData(dados.id_medico(), dados.data());
+        var dataConsulta = dados.data();
 
-        if(medicoComConsultaNoMesmoHorario){
+        var primieroHorario = dataConsulta.withHour(7);
+        var ultimoHorario = dataConsulta.withHour(18);
+
+        var pacientePossuiOutraConsultaNoMesmoDia = repository.existsByPacienteIdAndDataBetween(dados.id_paciente(), primieroHorario, ultimoHorario);
+
+        if(pacientePossuiOutraConsultaNoMesmoDia){
             throw new ValidacaoException("Consulta marcada no horario de outra consulta");
         }
     }

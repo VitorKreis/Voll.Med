@@ -4,13 +4,19 @@ import Med.Voll.Api_Rest.Infra.ValidacaoException;
 import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
 import Med.Voll.Api_Rest.domain.Medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorMedicoInativo {
+@Component
+public class ValidadorMedicoInativo implements ValidadorConsulta {
 
     @Autowired
     private MedicoRepository repository;
 
     public void validar(criarConsultaDTO dados){
+
+        if(dados.id_medico() == null){
+            return;
+        }
 
         var medicoAtivo = repository.findAtivoById(dados.id_medico());
 
