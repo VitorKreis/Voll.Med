@@ -1,8 +1,8 @@
-package Med.Voll.Api_Rest.domain.Consulta.validadores;
+package Med.Voll.Api_Rest.domain.Validador.validadores;
 
 import Med.Voll.Api_Rest.Infra.ValidacaoException;
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaRepository;
-import Med.Voll.Api_Rest.domain.Consulta.MotivoCancelamentoDTO;
+import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +10,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Component
-public class validadorHorarioCancelamento implements ValidadorCancelamentoConsulta {
-
+public class validadorHorarioCancelamento implements ValidadorCancelamentoAgendamento {
 
     @Autowired
     ConsultaRepository repository;

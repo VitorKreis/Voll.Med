@@ -3,7 +3,7 @@ package Med.Voll.Api_Rest.Controller;
 
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaRepository;
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaService;
-import Med.Voll.Api_Rest.domain.Consulta.MotivoCancelamentoDTO;
+import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
 import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/consultas")
-public class ConsultaControlle {
+public class consultaController {
 
     @Autowired
     ConsultaService service;

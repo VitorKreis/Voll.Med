@@ -1,11 +1,11 @@
-package Med.Voll.Api_Rest.domain.Consulta.validadores;
+package Med.Voll.Api_Rest.domain.Validador.validadores;
 
 import Med.Voll.Api_Rest.Infra.ValidacaoException;
-import Med.Voll.Api_Rest.domain.Consulta.MotivoCancelamentoDTO;
+import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class validadorMotivoCancelamento implements ValidadorCancelamentoConsulta{
+public class validadorMotivoCancelamento implements ValidadorCancelamentoAgendamento {
 
     public void validar(MotivoCancelamentoDTO motivo){
         var motivo_cancelamento = motivo.motivo();

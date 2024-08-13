@@ -1,7 +1,7 @@
-package Med.Voll.Api_Rest.domain.Consulta.validadores;
+package Med.Voll.Api_Rest.domain.Validador.validadores;
 
 import Med.Voll.Api_Rest.Infra.ValidacaoException;
-import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
+import Med.Voll.Api_Rest.domain.Validador.DadosAgendamento;
 import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
@@ -9,7 +9,7 @@ import java.time.DayOfWeek;
 @Component
 public class validadorHorarioDeFuncionamento implements ValidadorConsulta {
 
-    public void validar(criarConsultaDTO dados){
+    public void validar(DadosAgendamento dados){
         var dataConsulta = dados.data();
 
         var domigo = dataConsulta.getDayOfWeek().equals(DayOfWeek.SUNDAY);

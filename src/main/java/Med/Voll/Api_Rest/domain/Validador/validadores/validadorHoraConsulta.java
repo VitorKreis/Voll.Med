@@ -1,7 +1,7 @@
-package Med.Voll.Api_Rest.domain.Consulta.validadores;
+package Med.Voll.Api_Rest.domain.Validador.validadores;
 
 import Med.Voll.Api_Rest.Infra.ValidacaoException;
-import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
+import Med.Voll.Api_Rest.domain.Validador.DadosAgendamento;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Component
 public class validadorHoraConsulta implements ValidadorConsulta{
 
-    public void validar(criarConsultaDTO dados){
+    public void validar(DadosAgendamento dados){
         var dataConsulta = dados.data();
         var horaAgora = LocalDateTime.now();
         var AgendadaComAntecedencia = Duration.between(horaAgora, dataConsulta).toMinutes();
