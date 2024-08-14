@@ -1,6 +1,6 @@
 package Med.Voll.Api_Rest.domain.Paciente;
 
-import Med.Voll.Api_Rest.domain.Endereco.dadosCadastroEnderecoDTO;
+import Med.Voll.Api_Rest.domain.Endereco.DadosEndereco;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 
-public record criarPacienteDTO(
+public record DadosPaciente(
         @NotNull(message = "Nome não pode ser vazio")
         String nome,
 
@@ -33,6 +33,6 @@ public record criarPacienteDTO(
 
         @NotNull(message = "endereço não pode ser vazio")
         @Valid
-        dadosCadastroEnderecoDTO endereco
+        DadosEndereco endereco
 ) {
 }

@@ -33,7 +33,7 @@ public class ConsultaService {
     @Autowired
     List<ValidadorCancelamentoAgendamento> validadorCancelamentoAgendamentos;
 
-    public ListaConsultaDto agendar(criarConsultaDTO dados){
+    public ListaDadosConsulta agendar(DadosConsulta dados){
 
         if(!pacienteRepository.existsById(dados.id_paciente())){
             throw new ValidacaoException("Id do paciente informado inexistente");
@@ -55,10 +55,10 @@ public class ConsultaService {
 
         consultaRepository.save(consulta);
 
-        return new ListaConsultaDto(consulta);
+        return new ListaDadosConsulta(consulta);
     }
 
-    private Medico escolherMedico(criarConsultaDTO dados){
+    private Medico escolherMedico(DadosConsulta dados){
         if(dados.id_medico() != null){
             return medicoRepository.getReferenceById(dados.id_medico());
         }

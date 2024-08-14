@@ -21,7 +21,7 @@ public class medicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<cadastroMedicoResponse> criarMedico(@RequestBody  @Valid criarMedicoDTO dados, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<DadosRespostaMedico> criarMedico(@RequestBody  @Valid DadosMedico dados, UriComponentsBuilder uriComponentsBuilder) {
 
         var medico = new Medico(dados);
 
@@ -29,25 +29,25 @@ public class medicoController {
 
         var uri = uriComponentsBuilder.path("/medico/{id}").buildAndExpand(medico.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(new cadastroMedicoResponse(medico));
+        return ResponseEntity.created(uri).body(new DadosRespostaMedico(medico));
     }
 
     @GetMapping
-    public ResponseEntity<Page<listarMedicosDTO>> listarMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable) {
-        var pacientes = repository.findByAtivoTrue(pageable).map(listarMedicosDTO::new);
+    public ResponseEntity<Page<ListaDadosMedico>> listarMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable) {
+        var pacientes = repository.findByAtivoTrue(pageable).map(ListaDadosMedico::new);
         return ResponseEntity.ok(pacientes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<listarMedicosDTO> listarUmMedico(@PathVariable Long id) {
+    public ResponseEntity<ListaDadosMedico> listarUmMedico(@PathVariable Long id) {
         var medico = repository.getReferenceById(id);
-        return ResponseEntity.ok().body(new listarMedicosDTO(medico));
+        return ResponseEntity.ok().body(new ListaDadosMedico(medico));
     }
 
 
     @PutMapping
     @Transactional
-    public ResponseEntity atualizarMedico(@RequestBody @Valid atualizarMedicoDTO dados){
+    public ResponseEntity atualizarMedico(@RequestBody @Valid DadosAtualizacaoMedico dados){
         var medico = repository.getReferenceById(dados.id());
         medico.atualizarMedico(dados);
 

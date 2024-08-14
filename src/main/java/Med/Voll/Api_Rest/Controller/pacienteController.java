@@ -19,7 +19,7 @@ public class pacienteController {
     PacienteRepository repository;
 
     @PostMapping()
-    public ResponseEntity criarPaciente(@RequestBody  @Valid criarPacienteDTO dados){
+    public ResponseEntity criarPaciente(@RequestBody  @Valid DadosPaciente dados){
         var paciente = new Paciente(dados);
         repository.save(paciente);
 
@@ -28,21 +28,21 @@ public class pacienteController {
 
 
     @GetMapping
-    public ResponseEntity<Page<ListarPacientes>> listarPacientes(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable){
-        var pacientes = repository.findByAtivoTrue(pageable).map(ListarPacientes::new);
+    public ResponseEntity<Page<ListarDadosPaciente>> listarPacientes(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable){
+        var pacientes = repository.findByAtivoTrue(pageable).map(ListarDadosPaciente::new);
         return ResponseEntity.ok(pacientes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ListarPacientes> listarUmPaciente(@PathVariable Long id){
+    public ResponseEntity<ListarDadosPaciente> listarUmPaciente(@PathVariable Long id){
         var paciente = repository.getReferenceById(id);
-        return ResponseEntity.ok().body(new ListarPacientes(paciente));
+        return ResponseEntity.ok().body(new ListarDadosPaciente(paciente));
     }
 
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity atuizarPaciente(@RequestBody atualizarPacienteDTO body, @PathVariable Long id){
+    public ResponseEntity atuizarPaciente(@RequestBody DadosAtualizacaoPaciente body, @PathVariable Long id){
         var paciente = repository.getReferenceById(id);
 
         paciente.atualizar(body);

@@ -24,7 +24,7 @@ public class Endereco {
 
     private String complemento;
 
-    public Endereco(dadosCadastroEnderecoDTO endereco) {
+    public Endereco(DadosEndereco endereco) {
         this.rua = endereco.rua();
         this.numero = endereco.numero();
         this.bairro = endereco.bairro();
@@ -32,7 +32,7 @@ public class Endereco {
         this.uf = endereco.uf();
         this.complemento = endereco.complemento();
     }
-    public void atualizaEndereco(atualizaEnderecoDTO endereco){
+    public void atualizaEndereco(DadosAtualizacaoEndereco endereco){
         if(endereco.rua() != null){
             this.rua = endereco.rua();
         }

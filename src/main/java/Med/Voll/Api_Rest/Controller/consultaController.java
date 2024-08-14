@@ -3,9 +3,9 @@ package Med.Voll.Api_Rest.Controller;
 
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaRepository;
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaService;
-import Med.Voll.Api_Rest.domain.Consulta.ListaConsultaDto;
+import Med.Voll.Api_Rest.domain.Consulta.ListaDadosConsulta;
 import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
-import Med.Voll.Api_Rest.domain.Consulta.criarConsultaDTO;
+import Med.Voll.Api_Rest.domain.Consulta.DadosConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +26,7 @@ public class consultaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<ListaConsultaDto> criarConsulta(@RequestBody criarConsultaDTO dados, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<ListaDadosConsulta> criarConsulta(@RequestBody DadosConsulta dados, UriComponentsBuilder uriComponentsBuilder){
         var consulta = service.agendar(dados);
 
         var uri = uriComponentsBuilder.path("/consultas/{id}").buildAndExpand(consulta.id()).toUri();
@@ -35,18 +35,18 @@ public class consultaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ListaConsultaDto>> listaConsultas(){
-        var consultas = repository.findAll().stream().map(ListaConsultaDto::new).toList();
+    public ResponseEntity<List<ListaDadosConsulta>> listaConsultas(){
+        var consultas = repository.findAll().stream().map(ListaDadosConsulta::new).toList();
 
         return ResponseEntity.ok(consultas);
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<ListaConsultaDto> listarUmaConsulta(@PathVariable Long id){
+    public ResponseEntity<ListaDadosConsulta> listarUmaConsulta(@PathVariable Long id){
         var consultas = repository.getReferenceById(id);
 
-        return ResponseEntity.ok(new ListaConsultaDto(consultas));
+        return ResponseEntity.ok(new ListaDadosConsulta(consultas));
     }
 
 

@@ -39,7 +39,7 @@ public class Paciente {
     private Boolean ativo = true;
 
 
-    public Paciente(criarPacienteDTO dados) {
+    public Paciente(DadosPaciente dados) {
         this.nome = dados.nome();
         this.telefone = dados.telefone();
         this.cpf = dados.cpf();
@@ -49,7 +49,7 @@ public class Paciente {
         this.endereco = new Endereco(dados.endereco());
     }
 
-    public void atualizar(atualizarPacienteDTO body) {
+    public void atualizar(DadosAtualizacaoPaciente body) {
         if(body.nome() != null){
             this.nome = body.nome();
         }

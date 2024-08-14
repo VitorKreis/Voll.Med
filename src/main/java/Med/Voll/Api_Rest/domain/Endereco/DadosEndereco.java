@@ -3,7 +3,7 @@ package Med.Voll.Api_Rest.domain.Endereco;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record dadosCadastroEnderecoDTO(
+public record DadosEndereco(
 
         @NotNull
         String rua,

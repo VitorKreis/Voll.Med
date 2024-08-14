@@ -1,12 +1,12 @@
 package Med.Voll.Api_Rest.domain.Paciente;
 
-import Med.Voll.Api_Rest.domain.Endereco.atualizaEnderecoDTO;
+import Med.Voll.Api_Rest.domain.Endereco.DadosAtualizacaoEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record atualizarPacienteDTO(
+public record DadosAtualizacaoPaciente(
         @NotNull
         Long id,
         String nome,
@@ -18,6 +18,6 @@ public record atualizarPacienteDTO(
         String cpf,
         String comentario,
         @Valid
-        atualizaEnderecoDTO endereco
+        DadosAtualizacaoEndereco endereco
 ) {
 }

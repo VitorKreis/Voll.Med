@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 
-public record criarConsultaDTO(
+public record DadosConsulta(
         @JsonAlias({"medico_id", "id_medico"})
         Long id_medico,
 
