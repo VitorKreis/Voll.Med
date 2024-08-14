@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamento;
 
 import java.time.LocalDateTime;
 
@@ -34,9 +35,9 @@ public class Consulta {
 
     @Column(name = "motivo_cancelamento")
     @Enumerated(EnumType.STRING)
-    private ListaConsultaDto.MotivoCancelamento cancelamento;
+    private MotivoCancelamento cancelamento;
 
-    public void cancelar(ListaConsultaDto.MotivoCancelamento motivo){
+    public void cancelar(MotivoCancelamento motivo){
         this.cancelamento = motivo;
     }
 }
