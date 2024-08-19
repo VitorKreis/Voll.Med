@@ -1,6 +1,6 @@
 package Med.Voll.Api_Rest.domain.Validador.validadores;
 
-import Med.Voll.Api_Rest.Infra.ValidacaoException;
+import Med.Voll.Api_Rest.Infra.exceptions.ValidacaoException;
 import Med.Voll.Api_Rest.domain.Validador.DadosAgendamento;
 import Med.Voll.Api_Rest.domain.Paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

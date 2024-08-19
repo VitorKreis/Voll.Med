@@ -1,6 +1,6 @@
 package Med.Voll.Api_Rest.domain.Consulta;
 
-import Med.Voll.Api_Rest.Infra.ValidacaoException;
+import Med.Voll.Api_Rest.Infra.exceptions.ValidacaoException;
 import Med.Voll.Api_Rest.domain.Validador.DadosAgendamento;
 import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
 import Med.Voll.Api_Rest.domain.Validador.validadores.ValidadorCancelamentoAgendamento;
