@@ -1,5 +1,6 @@
 package Med.Voll.Api_Rest.Infra.exceptions;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -30,4 +31,14 @@ public class ExceptionHandle {
 
         return ResponseEntity.badRequest().body(error.stream().map(ResponseErrorArgumentNotValid::new).toList());
     }
+
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity JWTVerificationExpeception(JWTVerificationException exception){
+
+        return ResponseEntity.badRequest().build();
+    }
+
+
+
 }

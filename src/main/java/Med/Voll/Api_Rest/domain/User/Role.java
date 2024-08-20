@@ -4,4 +4,5 @@ public enum Role {
     ENFERMEIRA,
     MEDICO,
     GERENTE,
+    USER
 }

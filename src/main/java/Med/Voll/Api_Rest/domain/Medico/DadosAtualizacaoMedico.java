@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosAtualizacaoMedico(@NotNull Long id, String nome,
+public record DadosAtualizacaoMedico(String nome,
                                      @Email(message = "Email deve ser valido")
                                  String email,
                                      @Pattern(regexp = "\\d{9,11}")
