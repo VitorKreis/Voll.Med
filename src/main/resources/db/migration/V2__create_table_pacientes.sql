@@ -5,7 +5,7 @@ CREATE TABLE pacientes (
     telefone VARCHAR(100) NOT NULL,
     cpf VARCHAR(100) NOT NULL UNIQUE,
     comentario VARCHAR(255) NOT NULL,
-    atendimento ENUM('ELETIVA','RECORRENTE', "URGENTE") NOT NULL,
+    atendimento VARCHAR(100) NOT NULL,
     rua VARCHAR(255) NOT NULL,
     bairro VARCHAR(100) NOT NULL,
     cep VARCHAR(9) NOT NULL,
