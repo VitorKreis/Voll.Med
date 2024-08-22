@@ -107,6 +107,9 @@ class MedicoRepositoryTest {
 
 
 
+
+
+
     private void cadastrarConsulta(Medico medico, Paciente paciente, LocalDateTime data ){
         entityManager.persist(new Consulta(null, medico, paciente, data, null));
     }

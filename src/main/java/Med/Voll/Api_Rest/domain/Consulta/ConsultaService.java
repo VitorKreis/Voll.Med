@@ -46,7 +46,7 @@ public class ConsultaService {
 
         DadosAgendamento agendamento = new DadosAgendamento(dados.id_medico(), dados.id_medico(), dados.data(), dados.especialidade());
 
-        validador.forEach(val -> val.validar(agendamento));
+         validador.forEach(val -> val.validar(agendamento));
 
         var medico = escolherMedico(dados);
         var paciente = pacienteRepository.getReferenceById(dados.id_paciente());
