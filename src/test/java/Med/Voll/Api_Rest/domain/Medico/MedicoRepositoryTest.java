@@ -2,6 +2,7 @@ package Med.Voll.Api_Rest.domain.Medico;
 
 import Med.Voll.Api_Rest.domain.Consulta.Consulta;
 import Med.Voll.Api_Rest.domain.Endereco.DadosEndereco;
+import Med.Voll.Api_Rest.domain.Medico.*;
 import Med.Voll.Api_Rest.domain.Paciente.DadosPaciente;
 import Med.Voll.Api_Rest.domain.Paciente.Paciente;
 import Med.Voll.Api_Rest.domain.Paciente.tipoAtendimento;
@@ -103,6 +104,41 @@ class MedicoRepositoryTest {
         assertThat(medicoLivre).isNull();
 
     }
+
+    @Test
+    @DisplayName("Deve retornar um false porque o medico nao esta ativo")
+    void medicoAtivoCenarioMedicoInativo(){
+        var medico = cadastrarMedico("Vitor", "vitor@vollmed.com", "123456", Especialidade.CARDIOLOGIA);
+        medico.desativarCadastro();
+
+        var medico_inativo = repository.findAtivoById(medico.getId());
+
+        assertThat(medico_inativo).isFalse();
+
+    }
+
+    @Test
+    @DisplayName("Deve retornar um null porque o id do medico não existe")
+    void medicoAtivoCenarioIdInexistente(){
+        var medico = cadastrarMedico("Vitor", "vitor@vollmed.com", "123456", Especialidade.CARDIOLOGIA);
+        medico.desativarCadastro();
+
+        var medico_inativo = repository.findAtivoById(10l);
+
+        assertThat(medico_inativo).isNull();
+
+    }
+
+    @Test
+    @DisplayName("Deve retornar um true")
+    void MedicoAtivoByIdCenarioTrue(){
+        var medico = cadastrarMedico("Vitor", "vitor@vollmed.com", "123456", Especialidade.CARDIOLOGIA);
+
+        var medico_ativo = repository.findAtivoById(medico.getId());
+
+        assertThat(medico_ativo).isTrue();
+    }
+
 
 
 
