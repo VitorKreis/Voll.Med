@@ -2,7 +2,6 @@ package Med.Voll.Api_Rest.domain.Paciente;
 
 
 import Med.Voll.Api_Rest.domain.Endereco.DadosEndereco;
-import Med.Voll.Api_Rest.domain.Medico.Medico;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
