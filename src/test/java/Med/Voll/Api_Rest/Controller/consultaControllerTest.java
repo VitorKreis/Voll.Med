@@ -3,11 +3,7 @@ package Med.Voll.Api_Rest.Controller;
 import Med.Voll.Api_Rest.domain.Consulta.ConsultaService;
 import Med.Voll.Api_Rest.domain.Consulta.DadosConsulta;
 import Med.Voll.Api_Rest.domain.Consulta.ListaDadosConsulta;
-import Med.Voll.Api_Rest.domain.Endereco.DadosEndereco;
-import Med.Voll.Api_Rest.domain.Medico.DadosMedico;
 import Med.Voll.Api_Rest.domain.Medico.Especialidade;
-import Med.Voll.Api_Rest.domain.Medico.Medico;
-import Med.Voll.Api_Rest.domain.Medico.Tipo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +86,6 @@ class ConsultaControllerTest {
     @WithMockUser(authorities = "user")
     void agendarConsultaCenarioAcessoInvalido() throws Exception {
 
-
         var response = mvc.perform(post("/consultas")).andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.FORBIDDEN.value());
@@ -98,15 +93,15 @@ class ConsultaControllerTest {
 
     @Test
     @DisplayName("Deve retornar codigo 200")
-    void agendarConsultaCenarioRetonarConsultas() throws Exception {
+    void consultarConsultaCenarioRetonarConsultas() throws Exception {
         var response = mvc.perform(get("/consultas")).andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
     }
 
     @Test
-    @DisplayName("Deve retornar codigo 403")
-    void agendarConsultaCenarioRetornarIdNaoEncontrado() throws Exception {
+    @DisplayName("Deve retornar codigo 403, por id nao encontrado")
+    void consultarConsultaCenarioRetornarIdInexistente() throws Exception {
         var response = mvc.perform(get("/consultas/10")).andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.NOT_FOUND.value());
