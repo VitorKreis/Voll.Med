@@ -42,21 +42,21 @@ projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com 
 A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:8090`:
 
 `/medico`
-* `GET /medico: Acessível por qualquer usuário (ANY)`
-* `GET /medico/:id: Acessível por qualquer usuário (ANY)`
-* `POST /medico: Acessível para usuários com as roles MEDICO e GERENTE`
-* `PUT /medico/:id: Acessível para usuários com as roles MEDICO e GERENTE`
-* `DELETE /medico/:id: Acessível apenas para usuários com a role GERENTE`
+* `GET /medico - Acessível por qualquer usuário (ANY)`
+* `GET /medico/:id - Acessível por qualquer usuário (ANY)`
+* `POST /medico - Acessível para usuários com as roles MEDICO e GERENTE`
+* `PUT /medico/:id - Acessível para usuários com as roles MEDICO e GERENTE`
+* `DELETE /medico/:id - Acessível apenas para usuários com a role GERENTE`
 
 `/paciente`
-* `GET /paciente: Acessível por qualquer usuário (ANY)`
-* `GET /paciente/:id: Acessível por qualquer usuário (ANY)`
-* `POST /paciente: Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
-* `PUT /paciente/:id: Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
-* `DELETE /paciente/:id: Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
+* `GET /paciente - Acessível por qualquer usuário (ANY)`
+* `GET /paciente/:id - Acessível por qualquer usuário (ANY)`
+* `POST /paciente - Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
+* `PUT /paciente/:id - Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
+* `DELETE /paciente/:id - Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
 
 `/consultas`
-* `GET /consultas: Acessível por qualquer usuário (ANY)`
-* `GET /consultas/:id: Acessível por qualquer usuário (ANY)`
-* `POST /consultas: Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
-* `DELETE /consultas/:id: Acessível apenas para usuários com a role GERENTE`
+* `GET /consultas - Acessível por qualquer usuário (ANY)`
+* `GET /consultas/:id - Acessível por qualquer usuário (ANY)`
+* `POST /consultas - Acessível para usuários com as roles MEDICO, GERENTE e ENFERMEIRA`
+* `DELETE /consultas/:id - Acessível apenas para usuários com a role GERENTE`
