@@ -10,20 +10,23 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/paciente")
-public class pacienteController {
+public class pacienteController  {
 
     @Autowired
     PacienteRepository repository;
 
     @PostMapping()
-    public ResponseEntity criarPaciente(@RequestBody  @Valid DadosPaciente dados){
+    public ResponseEntity criarPaciente(@RequestBody  @Valid DadosPaciente dados, UriComponentsBuilder uriComponentsBuilder){
         var paciente = new Paciente(dados);
+        var uri = uriComponentsBuilder.path("/paciente/{id}").buildAndExpand(paciente.getId()).toUri();
+
         repository.save(paciente);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.created(uri).build();
     }
 
 

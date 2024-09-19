@@ -89,7 +89,6 @@ class medicoControllerTest {
         assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
     }
 
-
     @Test
     @DisplayName("Dever retornar codigo 403, por falta de credenciais")
     @WithMockUser(authorities = "USER")
