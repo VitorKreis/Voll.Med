@@ -5,6 +5,7 @@ projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com 
 ## Funcionalidades
 - Agendamento de consultas, com algum medico ou por alguma especialidade.
 - Controle de Responsabilidades (Roles) para médicos, gerentes e enfermeiras.
+- Documentaçao do projeto em Swagger
 
 
 ## Tecnologias
@@ -35,6 +36,10 @@ projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com 
 4. Inicia o container docker:
      ```
        docker-compose up
+     ```
+5. Abra a documentaçao:
+     ```
+       http://localhost:8090/swagger-ui/index.html#/
      ```
 
 ### Endpoints
