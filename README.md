@@ -1,11 +1,12 @@
 ﻿# Voll.Med.API_Rest 
 Voll.Med é uma API RESTful desenvolvida em Java utilizando Spring Boot, que simula um sistema de gerenciamento de clínica médica. O
-projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com médicos e pacientes, além de garantir a segurança dos endpoints.
+projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com médicos e pacientes, além de garantir a segurança dos endpoints, garantindo o codigo limpo e as funcinalidades do projeto com testes de unidade e testes de integração.
 
 ## Funcionalidades
 - Agendamento de consultas, com algum medico ou por alguma especialidade.
 - Controle de Responsabilidades (Roles) para médicos, gerentes e enfermeiras.
 - Documentaçao do projeto em Swagger
+- testes de Unidade e de Integraçao
 
 
 ## Tecnologias
@@ -37,7 +38,11 @@ projeto permite realizar operações de CRUD (Create, Read, Update, Delete) com 
      ```
        docker-compose up
      ```
-5. Abra a documentaçao:
+5. Roda os testes:
+     ```
+       roda os testes
+     ```
+6. Abra a documentaçao:
      ```
        http://localhost:8090/swagger-ui/index.html#/
      ```
