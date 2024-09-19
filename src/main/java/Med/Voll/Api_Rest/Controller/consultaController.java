@@ -6,6 +6,7 @@ import Med.Voll.Api_Rest.domain.Consulta.ConsultaService;
 import Med.Voll.Api_Rest.domain.Consulta.ListaDadosConsulta;
 import Med.Voll.Api_Rest.domain.Validador.MotivoCancelamentoDTO;
 import Med.Voll.Api_Rest.domain.Consulta.DadosConsulta;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/consultas")
+@SecurityRequirement(name = "bearer-key")
 public class consultaController {
 
     @Autowired

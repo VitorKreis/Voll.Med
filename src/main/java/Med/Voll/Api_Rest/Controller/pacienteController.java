@@ -2,6 +2,7 @@ package Med.Voll.Api_Rest.Controller;
 
 
 import Med.Voll.Api_Rest.domain.Paciente.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,12 +15,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/paciente")
+@SecurityRequirement(name = "bearer-key")
 public class pacienteController  {
 
     @Autowired
     PacienteRepository repository;
 
     @PostMapping()
+
     public ResponseEntity criarPaciente(@RequestBody  @Valid DadosPaciente dados, UriComponentsBuilder uriComponentsBuilder){
         var paciente = new Paciente(dados);
         var uri = uriComponentsBuilder.path("/paciente/{id}").buildAndExpand(paciente.getId()).toUri();

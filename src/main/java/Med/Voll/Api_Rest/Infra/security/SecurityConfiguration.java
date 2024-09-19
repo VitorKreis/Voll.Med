@@ -45,6 +45,8 @@ public class SecurityConfiguration {
             request.requestMatchers(HttpMethod.PUT, "/consultas").hasAuthority("GERENTE");
             request.requestMatchers(HttpMethod.DELETE, "/consultas").hasAuthority("GERENTE");
 
+            request.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
+
             request.anyRequest().authenticated();
         });
         http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
