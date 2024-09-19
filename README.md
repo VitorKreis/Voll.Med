@@ -1,4 +1,4 @@
-# Voll.Med.API_Rest
+# Voll.Med
 
 **Voll.Med** é uma API RESTful desenvolvida em Java utilizando o framework Spring Boot. O projeto simula um sistema de gerenciamento de clínica médica, permitindo a realização de operações de CRUD (Create, Read, Update, Delete) para médicos e pacientes. A aplicação também oferece funcionalidades para agendamento de consultas e controle de acesso aos endpoints, além de incluir testes automatizados para garantir a qualidade do código.
 
